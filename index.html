@@ -1,14 +1,381 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>SeanShoots</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SeanShoots — One Week at a Time</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: #ffffff;
+            color: #111111;
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        .hero {
+            position: relative;
+            min-height: 620px;
+            background-image:
+                linear-gradient(rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.42)),
+                url("images/hero.jpg");
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .navigation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 24px;
+
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 15px;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================
+           HERO TEXT
+        ========================= */
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+
+            transform: translate(-50%, -50%);
+
+            text-align: center;
+
+            width: 90%;
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            margin: 0 0 18px;
+
+            font-size: clamp(42px, 6vw, 72px);
+            font-weight: normal;
+            line-height: 1.05;
+        }
+
+        .hero-content p {
+            margin: 10px 0;
+
+            font-size: 20px;
+            line-height: 1.4;
+        }
+
+        /* =========================
+           FEATURED PHOTOS
+        ========================= */
+
+        .featured {
+            width: 90%;
+            max-width: 900px;
+
+            margin: 0 auto;
+
+            padding: 55px 0 45px;
+
+            text-align: center;
+        }
+
+        .carousel {
+            position: relative;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            width: 100%;
+        }
+
+        .carousel img {
+            display: block;
+
+            width: auto;
+            max-width: 100%;
+
+            max-height: 520px;
+
+            height: auto;
+
+            object-fit: contain;
+        }
+
+        .dots {
+            margin-top: 18px;
+
+            display: flex;
+            justify-content: center;
+            gap: 7px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+
+            background: #c8c8c8;
+        }
+
+        .dot.active {
+            background: #26769c;
+        }
+
+        .featured-button {
+            display: block;
+
+            margin: 22px auto 0;
+
+            width: min(520px, 90%);
+
+            padding: 9px 15px;
+
+            background: #26769c;
+            color: white;
+
+            text-decoration: none;
+
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+
+            transition: background 0.2s ease;
+        }
+
+        .featured-button:hover {
+            background: #1d5d7c;
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .divider {
+            width: 100%;
+            border-top: 1px solid #dddddd;
+        }
+
+        .about {
+            width: 90%;
+            max-width: 900px;
+
+            margin: 0 auto;
+
+            padding: 35px 0 55px;
+        }
+
+        .about h2 {
+            margin: 0 0 20px;
+
+            font-size: 22px;
+            font-weight: normal;
+        }
+
+        .about p {
+            max-width: 650px;
+
+            margin: 0 0 48px;
+
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .hero {
+                min-height: 650px;
+
+                background-position: center;
+            }
+
+            .navigation {
+                padding: 16px;
+            }
+
+            .nav-links {
+                gap: 10px;
+            }
+
+            .nav-links a {
+                font-size: 11px;
+            }
+
+            .hero-content h1 {
+                font-size: 42px;
+            }
+
+            .hero-content p {
+                font-size: 18px;
+            }
+
+            .featured {
+                width: 92%;
+                padding-top: 35px;
+            }
+
+            .carousel img {
+                max-height: none;
+                width: 100%;
+                height: auto;
+            }
+
+            .about {
+                width: 85%;
+            }
+
+            .about p {
+                font-size: 15px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>SeanShoots</h1>
+    <!-- =========================
+         HERO
+    ========================= -->
 
-    <p>Photography by Sean</p>
+    <header class="hero">
+
+        <nav class="navigation">
+
+            <div class="logo">
+                seanshoots
+            </div>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="#">Weekly Photos</a>
+                <a href="#">Journal</a>
+                <a href="#">About</a>
+                <a href="#">Get In Touch</a>
+            </div>
+
+        </nav>
+
+        <div class="hero-content">
+
+            <h1>One Week at a Time</h1>
+
+            <p>Five photographs</p>
+            <p>Every week</p>
+            <p>One journey</p>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         FEATURED PHOTO
+    ========================= -->
+
+    <main>
+
+        <section class="featured">
+
+            <div class="carousel">
+
+                <img
+                    src="images/flower.jpg"
+                    alt="Orange flower photographed for this week's project"
+                >
+
+            </div>
+
+            <div class="dots">
+
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+
+            </div>
+
+            <a class="featured-button" href="#">
+                See This Week's Photos
+            </a>
+
+        </section>
+
+
+        <!-- =========================
+             ABOUT
+        ========================= -->
+
+        <div class="divider"></div>
+
+        <section class="about">
+
+            <h2>About this project</h2>
+
+            <p>
+                I bought an old Olympus E-300, and despite all of its quirks,
+                it made me enjoy photography more than I expected. This project
+                is just my way of staying consistent, sharing five photos each
+                week, and seeing where the journey takes me.
+            </p>
+
+            <p>
+                My goal is to keep photographing. Sharing five photos each week
+                gives me a reason to keep picking up my camera and continue
+                improving, five photos at a time.
+            </p>
+
+            <p>
+                Thanks for showing up! — Sean
+            </p>
+
+        </section>
+
+    </main>
 
 </body>
 </html>
